@@ -72,17 +72,15 @@ def main():
     # Plotagem combinada no eixo y positivo
     plt.figure(figsize=(10, 6))
 
-    # Plot Γ→X (eixo x positivo)
     kx_values = [k.x for k in kx_points]
     for band in range(kx_band_data.shape[1]):
         plt.plot(kx_values, kx_band_data[:, band], 'ko', markersize=2, linewidth=0.2, label='' if band == 0 else "")
 
-    # Plot Γ→Y (eixo x negativo)
-    ky_values = [1.0 + k.y for k in ky_points]  # Valores negativos para distinguir no eixo x
+    ky_values = [1.0 + k.y for k in ky_points]  
     for band in range(ky_band_data.shape[1]):
         plt.plot(ky_values, ky_band_data[:, band], 'ko', markersize=2, linewidth=0.2, label='' if band == 0 else "")
 
-    kxy_values = [0.5 + math.sqrt((k.x)**2 + (k.y)**2) for k in ky_points]  # Valores negativos para distinguir no eixo x
+    kxy_values = [0.5 + math.sqrt((k.x)**2 + (k.y)**2) for k in ky_points] 
     for band in range(kxy_band_data.shape[1]):
         plt.plot(kxy_values, kxy_band_data[:, band], 'ko', markersize=2, linewidth=0.2, label='' if band == 0 else "")
 
